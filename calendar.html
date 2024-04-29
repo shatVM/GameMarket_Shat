@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Календарь</title>
+  <style>
+    /* Стили для календаря */
+    #calendar {
+      font-family: Arial, sans-serif;
+      border-collapse: collapse;
+      width: 300px;
+    }
+
+    #calendar th, #calendar td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    #calendar th {
+      background-color: #f2f2f2;
+    }
+
+    #calendar td {
+      cursor: pointer;
+    }
+
+    #calendar td:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button onclick="prevMonth()">Предыдущий месяц</button>
+    <button onclick="nextMonth()">Следующий месяц</button>
+  </div>
+  <div id="calendar"></div>
+
+  <script>
+    var currentMonth = new Date().getMonth();
+    var currentYear = new Date().getFullYear();
+
+    // Функция для отображения календаря
+    function renderCalendar(year, month) {
+      var daysInMonth = new Date(year, month + 1, 0).getDate();
+      var firstDayOfMonth = new Date(year, month, 1).getDay();
+      var calendar = "<table id='calendar'>";
+      calendar += "<tr><th colspan='7'>" + new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(new Date(year, month)) + "</th></tr>";
+      calendar += "<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>";
+      calendar += "<tr>";
+
+      var dayCount = 1;
+      // Добавляем пустые ячейки для дней предыдущего месяца
+      for (var i = 0; i < firstDayOfMonth; i++) {
+        calendar += "<td></td>";
+      }
+
+      // Добавляем дни текущего месяца
+      for (var day = 1; day <= daysInMonth; day++) {
+        if (dayCount % 7 === 0) {
+          calendar += "</tr><tr>";
+        }
+        calendar += "<td onclick='selectDate(" + year + "," + (month + 1) + "," + day + ")'>" + day + "</td>";
+        dayCount++;
+      }
+
+      // Добавляем пустые ячейки для оставшихся дней недели
+      for (var i = 0; i < 7 - (firstDayOfMonth + daysInMonth) % 7; i++) {
+        calendar += "<td></td>";
+      }
+
+      calendar += "</tr>";
+      calendar += "</table>";
+
+      document.getElementById("calendar").innerHTML = calendar;
+    }
+
+    // Функция для выбора даты
+    function selectDate(year, month, day) {
+      var selectedDate = year + "-" + month.toString().padStart(2, '0') + "-" + day.toString().padStart(2, '0');
+      alert("Вы выбрали дату: " + selectedDate);
+      // Здесь можно добавить код для обработки выбранной даты
+    }
+
+    // Функция для перехода к предыдущему месяцу
+    function prevMonth() {
+      currentMonth--;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      }
+      renderCalendar(currentYear, currentMonth);
+    }
+
+    // Функция для перехода к следующему месяцу
+    function nextMonth() {
+      currentMonth++;
+      if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+      renderCalendar(currentYear, currentMonth);
+    }
+
+    // Вызов функции для отображения календаря при загрузке страницы
+    window.onload = function() {
+      renderCalendar(currentYear, currentMonth);
+    };
+  </script>
+</body>
+</html>
