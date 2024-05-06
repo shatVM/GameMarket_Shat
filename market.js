@@ -1,19 +1,6 @@
 //Перевірка підключеного файлу скриптів
 //console.log('Підключено файл скриптів market.js')
 
-// Отримання елементу з ідентифікатором items 
-let itemsDiv = document.getElementById("items");
-
-//Перевірка існування знайденого блоку
-if (itemsDiv) {
-    //Вивід знайденого елементу
-    //console.log(itemsDiv)          
-
-} else {
-    //Вивід повідомлення про не знайдений блок
-    console.log('Блок товарів не знайдено')
-}
-
 //Визначення масиву товарів
 let itemsArray = [
     'Газонокосарка 43',
@@ -22,19 +9,31 @@ let itemsArray = [
     'Акумуляторний оприскувач 12 N',
 ]
 
-//Виведення елементів відсортованого масиву
-itemsArray.forEach((item) =>{
-    
-})
+// Отримання елементу з ідентифікатором items 
+let itemsDiv = document.getElementById("items");
+
+//Перевірка існування знайденого блоку
+if (itemsDiv) {
+    //Створення блоків по кількості елементів масиву
+    itemsArray.forEach((item,index) => {
+        //Виводимо на веб сторінку елемент масиву в блок з класом item
+        itemsDiv.innerHTML += 
+        `
+        <div class = "item">
+            <h2>Товар №${index + 1} з ${itemsArray.length}</h2>
+            <p>${item}</p>
+        </div>
+        ` 
+    })
+
+} else {
+    //Вивід повідомлення про не знайдений блок
+    console.log('Блок товарів не знайдено')
+}
 
 
-// //Сортування масиву
-// itemsArray = itemsArray.sort()
 
-// //Виведення в консоль номерів та значень елементів масиву
-//  for (let i = 0; i < itemsArray.length; i++) {
-//     console.log(i + '-й елемент: ', itemsArray[i])
-// }
+
 
 
 
