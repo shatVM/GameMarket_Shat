@@ -12,15 +12,12 @@ body {
 }
 
 content {
-    width: 420px;
+    width: 460px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 10px;
 }
-
-/* Для наочності роботи з блоками */
-div {}
 
 /* Блок заголовку */
 .title {
@@ -41,18 +38,18 @@ div {}
 }
 
 /* Блок товарів*/
-.items {    
+.items {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;    
+    justify-content: space-between;
 }
 
 /* Блок окремого товару */
 .item {
-    width: 200px;
-    height: 320px;
+    min-width: 200px;
+    min-height: 400px;
     margin-bottom: 10px;
-    /* padding: 10px; */
+    padding: 10px;
 
     background-color: #ffffff;
 
@@ -65,26 +62,82 @@ div {}
     justify-content: space-between;
 }
 
-.prise {    
-    border-radius: 5px;
+/* Блок назви товару */
+.item-title{
+    font-weight: bold;
+}
 
+/* Блок зображення товару */
+.item-image {
+    height: 200px;
+    
+}
+
+/* Блок з оплатою частинами */
+.parts-pay {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* Зображення, які знаходяться в блоці оплати частинами */
+.parts-pay img {
+    height: 24px;    
+}
+
+/* Блок ціни */
+.price {
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 5px;
+    padding: 5px 10px;
     display: flex;
 }
 
+.price div:first-child {
+    width: 100px;
+    font-size: 20px;
+}
+
+.price div:first-child span {
+    text-decoration-line: line-through;
+}
+
+.price div:first-child sup {
+    font-size: 12px;
+}
+
+.price div:last-child {
+    font-size: 24px;
+}
+
+.price div:last-child sup {
+    font-size: 14px;
+}
+
+/* Блок бонусної ціни */
 .bonus {
     background: rgb(253, 48, 48);
+    color: white;
     border-radius: 5px;
-    padding: 5px;
-
-    display: flex;    
+    display: flex;
+    align-items: center;
 }
 
-/* 1 товар */
-.item-1{
-    /* background-image: url(img-market/1.png); */
-   
+.bonus div:first-child {
+    width: 100px;
+    font-size: 14px;
 }
 
+.bonus div:last-child {
+    font-size: 24px;
+}
+
+.bonus div:last-child sup {
+    font-size: 14px;
+
+}
 
 /* Блок контактів */
 .contacts p {
@@ -100,7 +153,8 @@ div {}
     border-left: 3px solid rgb(253, 48, 48);
 }
 
-.license {
+/* Блок інформації */
+.info {
     font-size: 9px;
     text-align: justify;
     color: rgb(120, 120, 120);

@@ -11,3 +11,75 @@
         <p>| +38 (067) 414-53-30*</p>
     </div>
     <div>*Знижка в розмірі сто гривень діє з Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas officia distinctio itaque quisquam ratione fugit, incidunt sint, corporis iusto inventore facere. Voluptates, tenetur. Veritatis ex provident facilis, suscipit eaque minima. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti quas tempore fugiat. Expedita, accusantium laborum soluta officiis, autem quisquam enim error sint explicabo ad magnam a deserunt qui excepturi nemo.</div>
+
+    // Отримується масив елементів з класом items 
+let items = document.getElementsByClassName("items");
+
+//Вивід першого елементу з масиву знайдених
+console.log(items[0])
+
+//Масив товарів
+let goods = [
+    'Мотокоса 43',
+    'Електричний тример 110',
+    'Електрична газонокосарка 32',
+    'Оприскувач'
+]
+
+//Вивід в консоль масиву товарів
+goods.forEach((good)=>{
+    console.log(good)
+    items[0].innerHTML+=`
+    <!-- Блок окремого товару -->
+                <div class="item">
+    
+                    <div class="item-title">${good}</div>
+    
+                    <!-- Блок зображення товару -->
+                    <div class="item-image"></div>
+    
+                    <!-- Блок з оплатою частинами -->
+                    <div class="parts-pay">
+                        <div><img src="img-market/mono-lapka.png" alt="">6</div>
+                        <div><img src="img-market/pb.png" alt="">8</div>
+                    </div>
+    
+                    <!-- Блок ціни -->
+                    <div class="prise">
+                        <div><span>5499 </span><sup>грн</sup></div>
+                        <div><span>4497 </span><sup>грн</sup></div>
+                    </div>
+    
+                    <!-- Блок бонусної ціни -->
+                    <div class="prise bonus">
+                        <div>ціна за купоном</div>
+                        <div><span>4395 </span><sup>грн</sup></div>
+                    </div>
+                </div>
+    `
+})
+
+// Отримання елементу з ідентифікатором items 
+let itemsDiv = document.getElementById("items");
+
+//Перевірка існування знайденого блоку
+if (itemsDiv) {
+    //Вивід знайденого елементу
+    console.log(itemsDiv)
+    //Вивід значення поля знайденого елементу
+    console.log('Поле classList: ', itemsDiv.classList)
+    console.log('Поле id: ', itemsDiv.id)
+    console.log('Поле clientWidth: ', itemsDiv.clientWidth)
+    console.log('Поле innerHTML: ', itemsDiv.innerHTML)
+
+    //Додавання тексту в блок
+    itemsDiv.innerText = 'Перший Програмно доданий текст'
+    itemsDiv.innerText += 'Другий Програмно доданий текст'   
+    //Додавання відформатованого HTML коду в блок 
+    itemsDiv.innerHTML = '<h1>Відформатований HTML код</h1>'
+} else {
+    //Вивід повідомлення про не знайдений блок
+    console.log('Блок товарів не знайдено')
+}
+
+// itemsDiv.innerHTML += '<div class = "item"></div>'

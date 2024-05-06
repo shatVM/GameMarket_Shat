@@ -1,0 +1,27 @@
+<!-- Блок окремого товару -->
+                <div class="item">
+
+                <!-- Блок назви товару -->
+                    <div class="item-title"></div>
+    
+                    <!-- Блок зображення товару -->
+                    <div class="item-image"></div>
+    
+                    <!-- Блок з оплатою частинами -->
+                    <div class="parts-pay">
+                        <div><img src="img-market/mono-lapka.png" alt="">6</div>
+                        <div><img src="img-market/pb.png" alt="">8</div>
+                    </div>
+    
+                    <!-- Блок ціни -->
+                    <div class="prise">
+                        <div><span>5499 </span><sup>грн</sup></div>
+                        <div><span>4497 </span><sup>грн</sup></div>
+                    </div>
+    
+                    <!-- Блок бонусної ціни -->
+                    <div class="prise bonus">
+                        <div>ціна за купоном</div>
+                        <div><span>4395 </span><sup>грн</sup></div>
+                    </div>
+                </div>
