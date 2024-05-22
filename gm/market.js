@@ -4,56 +4,23 @@
 //Визначення масиву об'єктів
 let itemsArray = [
     {
-        title: "Мотокоса 43",
-        image: "https://agora-discount.com/image/cache/catalog/10,05,2024/catalog-origin-308991-1144x912.jpg",
-        mono: 4,
-        pb: 10,
-        prise_standart: 5499,
-        prise_discount: 4497,
-        prise_coupon: 4395,
-    },
-    {
-        title: "Електричний тример",
+        title: "Carpatians",
+        author: "Присяжнюк Богдана",
+        author_photo: "img/Присяжнюк.jpg",
         image: "",
-        mono: 6,
-        pb: 10,
-        prise_standart: 5000,
-        prise_discount: 4000,
-        prise_coupon: 3800,
-    },
-    {
-        title: "Газонокосарка",
-        image: "",
-        mono: 6,
-        pb: 12,
-        prise_standart: 5000,
-        prise_discount: 4000,
-        prise_coupon: 3800,
-    },
-    {
-        title: "Оприскувач",
-        image: "",
-        mono: 6,
-        pb: 8,
-        prise_standart: 5000,
-        prise_discount: 4000,
-        prise_coupon: 3800,
-    },
-
-
-   
-    
+        email: "23a_pbv@liceum.ztu.edu.ua",
+        group: "10-А 2",        
+        game_github: "https://github.com/Prydana/Phaser2stGame",
+        game_pages: "https://prydana.github.io/Phaser2stGame/",
+        docs: "https://drive.google.com/drive/folders/1K--lAbvnwzUQ4BjN136Blvp46ErW0mkJ",
+        forms: "https://forms.gle/HnBZ5pzJ4DLpa6E69",
+        gamemarket_github: "https://github.com/Prydana/GameMarket_Prysiazhniuk",
+        gamemarket_pages: "https://prydana.github.io/GameMarket_Prysiazhniuk/",
+        market_pages: "https://prydana.github.io/GameMarket_Prysiazhniuk/market.html",
+        stars: 5
+   }      
 
 ]
-
-
-
-
-
-
-
-
-
 
 
 // Отримання елементу з ідентифікатором items 
@@ -70,32 +37,48 @@ if (itemsDiv) {
             //Виводимо на веб сторінку елемент масиву в блок з класом item
             itemsDiv.innerHTML +=
                 `
-                <!-- Блок окремого товару -->
+                <!-- Блок окремої гри -->
                 <div class="item">
     
                     <div class="item-title">${item.title}</div>
+                    <div class="item-author">${item.author}</div>
+                    
     
-                    <!-- Блок зображення товару -->
+                    <!-- Блок зображення  -->
                     <div class="item-image">
                         <img src="${item.image}" class = "item-image">
+                        <img src="${item.author_photo}" class = "item-image">
                     </div>
     
                     <!-- Блок з оплатою частинами -->
                     <div class="parts-pay">
-                        <div><img src="img-market/mono-lapka.png" alt="">${item.mono}</div>
-                        <div><img src="img-market/pb.png" alt="">${item.pb}</div>
+                        <div><img src="img-market/mono-lapka.png" alt="">${item.group}</div>
+                        <div><img src="img-market/pb.png" alt="">${item}</div>
                     </div>
     
                     <!-- Блок ціни -->
                     <div class="prise">
-                        <div><span>${item.prise_standart} </span><sup>грн</sup></div>
-                        <div><span> ${item.prise_discount}</span><sup>грн</sup></div>
+                        <div><span>${item} </span><sup></sup></div>                        
                     </div>
     
-                    <!-- Блок бонусної ціни -->
+                    <!-- Блок посилань -->
                     <div class="prise bonus">
-                        <div>ціна за купоном</div>
-                        <div><span>${item.prise_coupon} </span><sup>грн</sup></div>
+                        <div><a href = "${item.game_github}" target=_blank>Гра на Github</a></div>                        
+                    </div>
+                    <div class="prise bonus">
+                        <div><a href = "${item.game_pages}" target=_blank>Грати в гру</a></div>                        
+                    </div>
+                    <div class="prise bonus">
+                    <div><a href = "${item.gamemarket_github}" target=_blank>Market Github</a></div>                        
+                    </div>
+                    <div class="prise bonus">
+                        <div><a href = "${item.gamemarket_pages}" target=_blank>Market Pages</a></div>                        
+                    </div>
+
+
+
+                    <div class="prise bonus">                        
+                        <div>Рейтинг: <span>${item.stars} </span><sup></sup></div>
                     </div>
                 </div>                
                 `
