@@ -44,7 +44,9 @@ a {
 .items {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
 }
 
 /* Блок окремого товару */

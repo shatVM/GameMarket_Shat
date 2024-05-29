@@ -404,18 +404,21 @@ let itemsArray = [
 // Отримання елементу з ідентифікатором items 
 let itemsDiv = document.getElementById("items");
 
-//Перевірка існування знайденого блоку
-if (itemsDiv) {
-    //Створення блоків по кількості елементів масиву
-    itemsArray
-        .sort((a, b) => a.Group.localeCompare(b.Group))
-        //Сортування за прізвищем
-        //.sort((a, b) => a.LastName.localeCompare(b.LastName))        
-        //
-        .forEach((item, index) => {
-            //Виводимо на веб сторінку елемент масиву в блок з класом item
-            itemsDiv.innerHTML +=
-                `
+function showItems(filterParam) {
+    //Перевірка існування знайденого блоку
+    if (itemsDiv) {
+        itemsDiv.innerText = ""
+        //Створення блоків по кількості елементів масиву
+        itemsArray
+            .filter(item => !filterParam || item.Group === filterParam)
+            //.sort((a, b) => a.Group.localeCompare(b.Group))
+            //Сортування за прізвищем
+            .sort((a, b) => a.LastName.localeCompare(b.LastName))        
+            //
+            .forEach((item, index) => {
+                //Виводимо на веб сторінку елемент масиву в блок з класом item
+                itemsDiv.innerHTML +=
+                    `
                 <!-- Блок   -->
                 <div class="item">    
                     <div class="item-title">${item.LastName} ${item.FirstName}  ${item.Group}</div>                    
@@ -423,14 +426,29 @@ if (itemsDiv) {
                     <div class="item-title">Оцінка: ${item.Mark}</div> 
                 </div>                
                 `
-        })
+            })
 
-} else {
-    //Вивід повідомлення про не знайдений блок
-    console.log('Блок товарів не знайдено')
+    } else {
+        //Вивід повідомлення про не знайдений блок
+        console.log('Блок товарів не знайдено')
+    }
 }
 
 
+let sortByGroupButton = document.querySelectorAll(".price")
+console.log(sortByGroupButton);
+sortByGroupButton.forEach((item) => {
+    item.addEventListener('click', () => {
+        //console.log(item.innerText)
+        if (item.innerText != "Всі") {
+            showItems(item.innerText)
+        }
+
+        else {
+            showItems(null)
+        }
+    })
+})
 
 
 
