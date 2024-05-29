@@ -4,7 +4,6 @@ body {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-
     font-family: Roboto;
     background-color: #f1f1f1;
     display: flex;
@@ -12,11 +11,15 @@ body {
 }
 
 content {
-    width: 460px;
+    width: 1200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 10px;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* Блок заголовку */
@@ -46,8 +49,8 @@ content {
 
 /* Блок окремого товару */
 .item {
-    min-width: 200px;
-    min-height: 400px;
+    min-width: 250px;
+    /* min-height: 200px; */
     margin-bottom: 10px;
     padding: 10px;
 
@@ -59,7 +62,7 @@ content {
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 5px;
 }
 
 /* Блок назви товару */
@@ -67,25 +70,18 @@ content {
     font-weight: bold;
 }
 
-/* Блок зображення товару */
+/* Блок зображення  */
 .item-image {
-    width: 200px;
+    display: flex;
+    gap: 10px;
+    
+}
+.item-image img{
+    height: 300px;
     
 }
 
-/* Блок з оплатою частинами */
-.parts-pay {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: center;
-}
 
-/* Зображення, які знаходяться в блоці оплати частинами */
-.parts-pay img {
-    height: 24px;    
-}
 
 /* Блок ціни */
 .price {
@@ -95,49 +91,19 @@ content {
     display: flex;
 }
 
-.price div:first-child {
-    width: 100px;
-    font-size: 20px;
-}
-
-.price div:first-child span {
-    text-decoration-line: line-through;
-}
-
-.price div:first-child sup {
-    font-size: 12px;
-}
-
-.price div:last-child {
-    font-size: 24px;
-}
-
-.price div:last-child sup {
-    font-size: 14px;
-}
-
 /* Блок бонусної ціни */
 .bonus {
-    background: rgb(253, 48, 48);
-    color: white;
+    background: rgb(166, 224, 246);
+    color: rgb(62, 47, 3);
     border-radius: 5px;
     display: flex;
     align-items: center;
+    padding: 5px;
+    font-size: large;
+    font-weight: bold;
 }
 
-.bonus div:first-child {
-    width: 100px;
-    font-size: 14px;
-}
 
-.bonus div:last-child {
-    font-size: 24px;
-}
-
-.bonus div:last-child sup {
-    font-size: 14px;
-
-}
 
 /* Блок контактів */
 .contacts p {
