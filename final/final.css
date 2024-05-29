@@ -72,6 +72,12 @@ a {
     font-weight: bold;
 }
 
+.mark {
+    border: 0;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
 /* Блок зображення  */
 .item-image {
     display: flex;
